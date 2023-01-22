@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand mb-0 h1" href="#">
+                    <i class="fas fa-globe"></i> Webservices ATLAS</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#rec">Recette <span class="badge rounded-pill badge-notification bg-danger">1</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#int">Intégration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#prod">Production</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Paramètres
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <div class="input-group">
+                            <div class="form-outline">
+                                <input type="search" id="form" class="form-control" />
+                            </div>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div id="rec" class="container-fluid mt-3 container fade">
+            <h3>Basic Navbar Example</h3>
+            <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+            <p>The navbar-expand-xxl|xl|lg|md|sm class determines when the navbar should stack vertically (on xxlarge, extra large, large, medium or small screens).</p>
+        </div>
+
+        <div id="int" class="container-fluid mt-3 container fade">
+            <span class="title">{{ hello }}, your lucky number is {{ number }}</span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var container = document.getElementById('visualization');
+
+        var groups = new vis.DataSet([
+            {id: 1, content: 'United States'},
+            {id: 2, content: 'France'}
+        ]);
+
+        var items = new vis.DataSet([
+            {id: 1, content: 'Editable', editable: true, start: '2010-01', group: 1},
+            {id: 2, content: 'Editable', editable: true, start: '2010-01', group: 2},
+            {id: 3, content: 'Read-only', editable: false, start: '2011-02', group: 1},
+            {id: 4, content: 'Read-only', editable: false, start: '2011-02', group: 2},
+            {id: 5, content: 'Edit Time Only', editable: { updateTime: true, updateGroup: false, remove: false }, start: '2012-01', group: 1},
+            {id: 6, content: 'Edit Group Only', editable: { updateTime: false, updateGroup: true, remove: false }, start: '2012-01', group: 2},
+            {id: 7, content: 'Remove Only', editable: { updateTime: false, updateGroup: false, remove: true }, start: '2013-01', group: 1},
+            {id: 8, content: 'Default', start: '2013-01', group: 2}
+        ]);
+
+        // Configuration for the Timeline
+        var options = {};
+
+        // Create a Timeline
+        var timeline = new vis.Timeline(container, items, groups, options);
+    </script>
+{% endblock %}
