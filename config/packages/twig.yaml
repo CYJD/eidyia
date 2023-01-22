@@ -1,6 +1,8 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
-
+    globals:
+        tag_analytics: "%env(TAG_ANALYTICS)%"
+        name: "%env(SITENAME)%"
 when@test:
     twig:
         strict_variables: true
